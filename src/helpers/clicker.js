@@ -1,12 +1,11 @@
-// This file is created because with Selenium-Webdriver, we can click on a button several times. In order to avoid repeating our code for this maneuver, we are creating an asynchronous function here that will do the multiple clicks for us. 
 // NOTE: tester() is asynchronous because Selenium-Webdriver needs to wait to see if there is an element available that matches the element we are calling for. We will be calling for specific element searches, so to speak, in `test-files/tester.js`. 
 
 /**
- * @param {Object} driver - Pass Selenium Webdriver object here -- necessary for the multiClick function so that it can grab the driver
+ * @param {Object} driver - Pass Selenium Webdriver object here -- necessary for the clicker function so that it can grab the driver
  * @param {Object} element - This is the element that the user interacts with (ie: button, row, field)
  */
-async function multiClick(driver, element, clickAmount=2, ms=1000) {
-    //Setting clickAmount to 2 so that, by default, this function clicks twice. 
+async function clicker(driver, element, clickAmount=1, ms=1000) {
+    //Setting clickAmount to 1 so that, by default, this function clicks once. 
     // Setting ms (miliseconds) to 1000, because that is the longest amount of time that the program should need in order to find the element called. 
 
     for (i = 0; i < clickAmount; i++) {
@@ -15,4 +14,4 @@ async function multiClick(driver, element, clickAmount=2, ms=1000) {
     }
 }
 
-module.exports = { multiClick }
+module.exports = { clicker }

@@ -1,7 +1,7 @@
 // This is where we grab the Chrome driver so that Selenium-Webdriver can properly access Chrome! 
-
 const chrome = require('selenium-webdriver/chrome');
 const { Builder } = require('selenium-webdriver');
+
 /**
  * @param {string} browserName - (ie: Chrome) 
  */
@@ -24,4 +24,5 @@ async function getDriver(browserName) {
     }
     return driver;
 }
+
 module.exports = { getDriver };
