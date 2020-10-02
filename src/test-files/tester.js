@@ -19,9 +19,8 @@ async function tester(browserName) {
             await clicker(driver, button); //not passing in clickAmount or ms here because it has default values provided by the clicker function
 
         console.log('---Enter information into the text area--- \n');
-            const textarea = "//input[@id='gsc-i-id1']"; //finding the relative xpath of textarea
-            await driver.wait(until.elementLocated(By.xpath(textarea)), 8000); //waiting to locate the element (textarea)
-            await driver.findElement(By.xpath(textarea)).sendKeys('Health123', Key.RETURN); //this allows us to find the element once it's been located, type in `Health123`, and then press `Enter`
+            await driver.wait(until.elementLocated(By.id('gsc-i-id1')), 8000); //waiting to locate the element (textarea)
+            await driver.findElement(By.id('gsc-i-id1')).sendKeys('Health123', Key.RETURN); //this allows us to find the element once it's been located, type in `Health123`, and then press `Enter`
 
         console.log('---Click on the link displayed as a result of the search---');
             const result = "//body/div[@id='wrapper']/section[2]/div[1]/div[1]/div[2]/div[1]/div[1]/div[1]/div[5]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/a[1]";
@@ -41,8 +40,8 @@ async function tester(browserName) {
             });
 
             await driver.wait(until.urlContains('https://pub.azdhs.gov/health-stats/report/dhsag/dhsag99/ethnic99.pdf'), 10000); //making sure we have the right PDF 
-            await driver.close(); //close the tab
-            await driver.switchTo().window(originalWindow); //switch back to the original window
+            await driver.close(); 
+            await driver.switchTo().window(originalWindow); 
             await driver.sleep(2000);
 
         console.log('---TEST IS COMPLETE.--- \n');
